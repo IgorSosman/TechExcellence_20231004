@@ -1,0 +1,7 @@
+###
+GET {{bookstore_host_host}}/actuator
+Accept: application/json
+
+###
+GET {{bookstore_host_host}}/actuator/health
+Accept: application/json
