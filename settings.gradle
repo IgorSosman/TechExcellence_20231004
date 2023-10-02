@@ -1,0 +1,3 @@
+rootProject.name = 'TechExellence_20231004'
+include('bookstore')
+
