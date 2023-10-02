@@ -2,6 +2,9 @@ plugins {
     id 'java'
 }
 
+
+
+
 tasks.register('createUseCaseFolderStructure') {
     doFirst {
         var relPath = project.projectDir.path + '/bookstore/src/main/java/ch/sosman/bookstore/application/' +
