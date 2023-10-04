@@ -1,0 +1,3 @@
+###
+GET {{bookstore_host_host}}/books
+Accept: application/json
