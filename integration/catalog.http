@@ -1,3 +1,20 @@
 ###
 GET {{bookstore_host_host}}/books
 Accept: application/json
+
+> {%
+    client.global.set("isbn", response.body[2].isbn);
+%}
+
+
+###
+GET {{bookstore_host_host}}/books/{{isbn}}
+Accept: application/json
+
+###
+GET {{bookstore_host_host}}/books/101-1010101042
+Accept: application/json
+
+###
+GET {{bookstore_host_host}}/books/isbn101-1010101042
+Accept: application/json

@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class BookMapper {
   public BookDto from(final Book book) {
     return new BookDto(
-        book.title(), book.authors().stream().map(Author::name).toList(), book.isbn().number());
+        book.title(), book.authors().stream().map(Author::name).toList(), book.isbn().getNumber());
   }
 }

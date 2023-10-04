@@ -22,4 +22,8 @@ public class CatalogPresenter {
   public ResponseEntity<List<BookDto>> presentBooks(final Set<Book> books) {
     return new ResponseEntity<>(books.stream().map(mapper::from).toList(), OK);
   }
+
+  public ResponseEntity<BookDto> presentBook(final Book book) {
+    return new ResponseEntity<>(mapper.from(book), OK);
+  }
 }

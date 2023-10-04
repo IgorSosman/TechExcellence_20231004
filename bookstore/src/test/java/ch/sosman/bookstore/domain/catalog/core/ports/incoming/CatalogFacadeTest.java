@@ -6,6 +6,7 @@ import static org.mockito.Mockito.doReturn;
 import ch.sosman.bookstore.domain.catalog.core.model.Author;
 import ch.sosman.bookstore.domain.catalog.core.model.Book;
 import ch.sosman.bookstore.domain.catalog.core.model.Isbn;
+import ch.sosman.bookstore.domain.catalog.core.model.exception.InvalidIsbnFormatException;
 import ch.sosman.bookstore.domain.catalog.core.ports.outgoing.BookRepository;
 import java.util.Collections;
 import java.util.Set;
@@ -17,7 +18,7 @@ class CatalogFacadeTest {
   public static final String BOOK_TITLE = "The DDD book";
 
   @Test
-  void displayAll_when_bookInRepository_then_books() {
+  void displayAll_when_bookInRepository_then_books() throws InvalidIsbnFormatException {
     // arrange
     final BookRepository repository = Mockito.mock(BookRepository.class);
     doReturn(createBooks()).when(repository).fetchAll();
@@ -43,7 +44,11 @@ class CatalogFacadeTest {
     assertTrue(books.isEmpty());
   }
 
-  private Set<Book> createBooks() {
-    return Set.of(new Book(Set.of(new Author("John Smith")), BOOK_TITLE, new Isbn("isbn")));
+  private Set<Book> createBooks() throws InvalidIsbnFormatException {
+    return Set.of(
+        new Book(
+            Set.of(new Author("John Smith")),
+            BOOK_TITLE,
+            Isbn.IsbnBuilder.builderInstance().withIsbnNumber("101-1010101042").build()));
   }
 }
