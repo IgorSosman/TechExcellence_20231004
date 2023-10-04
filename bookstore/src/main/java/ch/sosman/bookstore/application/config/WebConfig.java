@@ -1,4 +1,4 @@
-package ch.sosman.bookstore.config;
+package ch.sosman.bookstore.application.config;
 
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
